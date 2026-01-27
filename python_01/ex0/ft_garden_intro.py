@@ -1,7 +1,7 @@
 def ft_garden_intro():
-    name: str = "Rose"
-    height: str = "25cm"
-    age: str = "30 days"
+    name = "Rose"
+    height = "25cm"
+    age = "30 days"
     print("=== Welcome to My Garden ===")
     print(f"Plant: {name}")
     print(f"Height: {height}")

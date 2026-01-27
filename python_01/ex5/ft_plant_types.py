@@ -43,7 +43,7 @@ class Vegetable(Plant):
               f"{self.age} days, {self.harvest_season} harvest")
 
     def value(self):
-        print(f"{self.name} is rich in vitamin {self.nutritional_value}")
+        print(f"{self.name} is rich in vitamin {self.nutritional_value}\n")
 
 
 def main():
@@ -51,13 +51,25 @@ def main():
     rose.print_info()
     rose.bloom()
 
+    tulip = Flower("Tulip", 15, 10, "yellow")
+    tulip.print_info()
+    tulip.bloom()
+
     oak = Tree("Oak", 500, 1825, 50)
     oak.print_info()
     oak.produce_shade()
 
-    tomato = Vegetable("Tomato", 80, 90, "summer", "b")
+    pine = Tree("Pine", 300, 730, 20)
+    pine.print_info()
+    pine.produce_shade()
+
+    tomato = Vegetable("Tomato", 80, 90, "summer", "c")
     tomato.print_info()
     tomato.value()
+
+    carrot = Vegetable("Carrot", 20, 60, "winter", "A")
+    carrot.print_info()
+    carrot.value()
 
 
 main()
