@@ -23,7 +23,7 @@ class GardenManager():
 
     def add_plant(self, plant):
         if plant == "":
-            raise ValueError("Error adding plant: Plant name cannot be empty!")
+            raise PlantError("Error adding plant: Plant name cannot be empty!")
         else:
             self.plants_list.append(plant)
             print(f"Added {plant} successfully")
@@ -40,12 +40,15 @@ class GardenManager():
         finally:
             print("Closing watering system (cleanup)")
 
-    def chaeck_plants_health(self, plant_name, water_level, sunlight_hours):
+    def check_plants_health(self, plant_name, water_level, sunlight_hours):
+        """
+            check plant health && raising errors
+        """
         if plant_name == "":
             raise ValueError("Error: Plant name cannot be empty!")
         if 1 > water_level:
             raise ValueError(f"Error checking {plant_name}: Water level"
-                             f" {water_level}is too low (min 1)")
+                             f" {water_level} is too low (min 1)")
         if 10 < water_level:
             raise ValueError(f"Error checking {plant_name}: Water level"
                              f" {water_level} is too high (max 10)")
@@ -60,12 +63,18 @@ class GardenManager():
                   f" sun: {sunlight_hours})")
 
     def check_water(self, level):
+        """
+            check water is enough
+        """
         if level < 5:
-            raise GardenError("Not enough water in tank")
+            raise WaterError("Not enough water in tank")
         print(f"Water level is okay: {level}")
 
 
 def main():
+    """
+        main
+    """
     garde_manager = GardenManager()
     print("=== Garden Management System ===")
     try:
@@ -73,7 +82,7 @@ def main():
         garde_manager.add_plant("tomato")
         garde_manager.add_plant("lettuce")
         garde_manager.add_plant("")
-    except ValueError as e:
+    except PlantError as e:
         print(f"{e}")
     print("\nWatering plants...")
     garde_manager.water_plants()
@@ -91,7 +100,6 @@ def main():
     finally:
         print("System recovered and continuing...")
     print("\nGarden management system test complete!")
-
 
 
 main()

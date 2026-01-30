@@ -17,14 +17,14 @@ def test_temperature_input():
     """Tester
     """
     print("=== Garden Temperature Checker ===")
-    user_input = input("\nTesting temperature: ")
-    check_temperature(user_input)
-    user_input = input("\nTesting temperature: ")
-    check_temperature(user_input)
-    user_input = input("\nTesting temperature: ")
-    check_temperature(user_input)
-    user_input = input("\nTesting temperature: ")
-    check_temperature(user_input)
+    print("\nTesting temperature: 25")
+    check_temperature("25")
+    print("\nTesting temperature: abc")
+    check_temperature("abc")
+    print("\nTesting temperature: 100")
+    check_temperature("100")
+    print("\nTesting temperature: -50")
+    check_temperature("-50")
     print("\nAll tests completed - program didn't crash!")
 
 

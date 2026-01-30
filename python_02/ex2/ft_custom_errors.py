@@ -36,12 +36,12 @@ def main():
     try:
         check_plant()
     except PlantError as e:
-        print("Caught a PlantError:", e)
+        print("Caught PlantError:", e)
     print("\nTesting WaterError...")
     try:
         check_water()
     except WaterError as e:
-        print("Caught a WaterError:", e)
+        print("Caught WaterError:", e)
     print("\nTesting catching all garden errors")
     try:
         check_plant()
