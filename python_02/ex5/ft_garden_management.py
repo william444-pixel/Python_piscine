@@ -88,8 +88,8 @@ def main():
     garde_manager.water_plants()
     print("\nChecking plant health...")
     try:
-        garde_manager.chaeck_plants_health("tomato", 5, 8)
-        garde_manager.chaeck_plants_health("lettuce", 15, 8)
+        garde_manager.check_plants_health("tomato", 5, 8)
+        garde_manager.check_plants_health("lettuce", 15, 8)
     except ValueError as e:
         print(f"{e}")
     print("\nTesting error recovery...")
