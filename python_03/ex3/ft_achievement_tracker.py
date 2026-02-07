@@ -15,13 +15,16 @@ def achievement_analytics(player1, player2, player3):
     print(f"Rare achievements (1 player): {rare}")
     print(f"\nAlice vs Bob common: {common1_2}")
     print(f"Alice unique: {p1_unique}")
-    print(f"Alice unique: {p2_unique}")
+    print(f"Bob unique: {p2_unique}")
 
 
 def achievement_tracker():
-    alice = ['first_kill', 'level_10', 'treasure_hunter', 'speed_demon']
-    bob = ['first_kill', 'level_10', 'boss_slayer', 'collector']
-    charlie = ['level_10', 'treasure_hunter', 'boss_slayer', 'speed_demon',
+    alice = ['first_kill', 'first_kill', 'level_10', 'treasure_hunter',
+             'speed_demon']
+    bob = ['first_kill', 'level_10', 'boss_slayer',
+           'boss_slayer', 'collector']
+    charlie = ['level_10', 'treasure_hunter', 'treasure_hunter',
+               'boss_slayer', 'speed_demon',
                'perfectionist']
     s_alice = set(alice)
     s_bob = set(bob)
