@@ -352,8 +352,8 @@ data_base = [
 ]
 
 
-def streaming_info():
-    for event in data_base:
+def streaming_info(data):
+    for event in data:
         yield event
 
 
@@ -381,13 +381,13 @@ def prime():
 
 
 def main():
-    gen = streaming_info()
+    gen = streaming_info(data_base)
     event_count = 0
     count_level_10 = 0
     level_up_count = 0
     Treasure_count = 0
     print("=== Game Data Stream Processor ===")
-    print("\nProcessing 50 game events...\n")
+    print(f"\nProcessing {len(data_base)} game events...\n")
     for event in gen:
         print(
             f"Event {event['id']}: Player {event['player']} "
