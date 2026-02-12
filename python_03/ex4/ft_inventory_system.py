@@ -1,19 +1,21 @@
 def inventory():
-    data_alice = dict(sword={
-        'tags': ['weapon', 'rare'],
-        'qty': 1,
-        'price': 500,
+    data_alice = {
+        "sword": {
+            'tags': ('weapon', 'rare'),
+            'qty': 1,
+            'price': 500,
         },
-        potion={
-            'tags': ['consumable', 'common'],
+        "potion": {
+            'tags': ('consumable', 'common'),
             'qty': 5,
             'price': 50,
                 },
-        shield={
-            'tags': ['armor', 'uncommon'],
+        "shield": {
+            'tags': ('armor', 'uncommon'),
             'qty': 1,
             'price': 200,
-                })
+                }
+        }
     print("=== Player Inventory System ===")
     total_price = 0
     total_qt = 0
@@ -36,15 +38,17 @@ def inventory():
     data_alice['potion'].update({'qty': 3})
     print("\n=== Transaction: Alice gives Bob 2 potions ===")
     print("Transaction successful!")
-    data_bob = dict(magic_ring={
-        'tags': ['weapon', 'rare'],
-        'qty': 1,
-        'price': 500},
-        potion={
+    data_bob = {
+        "magic_ring": {
+            'tags': ['weapon', 'rare'],
+            'qty': 1,
+            'price': 500},
+        "potion": {
             'tags': ['consumable', 'common'],
             'qty': 2,
             'price': 50,
-                })
+                }
+        }
     print("\n=== Updated Inventories ===")
     print(f"Alice potions: {data_alice['potion'].get('qty')}")
     print(f"Bob potions: {data_bob['potion'].get('qty')}")

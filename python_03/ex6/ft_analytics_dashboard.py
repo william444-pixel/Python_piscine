@@ -279,11 +279,14 @@ def analytics():
     print("=== Game Analytics Dashboard ===")
     ##########################################
     print("\n=== List Comprehension Examples ===")
-    list_high_score = [s["player"] for s in data_base["sessions"] if s["score"] > 2000]
+    list_high_score = [s["player"]
+                       for s in data_base["sessions"] if s["score"] > 2000]
     list_high_score_final = list(set(list_high_score))
     print(f"High scorers (>2000): {list_high_score_final}")
     all_scores = [s["score"] for s in data_base["sessions"]]
-    duplicates = list(set([x for x in all_scores if all_scores.count(x) > 1]))
+    s1 = [x for x in all_scores if all_scores.count(x) > 1]
+    s = set(s1)
+    duplicates = list(s)
     print(f"Scores doubled: {duplicates}")
     ##################################################
     print("\n=== Dict Comprehension Examples ===")
@@ -308,31 +311,38 @@ def analytics():
     }
     print(f"Score categories: {dict_categories}")
     dict_achivement = {
-        s: data_base["players"][s]["achievements_count"] for s in data_base["players"]
+        s: data_base["players"][s]["achievements_count"]
+        for s in data_base["players"]
     }
     print(f"Achievement counts: {dict_achivement}")
     print("\n=== Set Comprehension Examples ===")
-    set_unique = set(s["player"] for s in data_base["sessions"])
+    s = {s["player"] for s in data_base["sessions"]}
+    set_unique = set(s)
     print(f"Unique players: {set_unique}")
-    set_achievement = set(
-        data_base["players"][s]["achievements"] for s in data_base["players"]
-    )
+    s2 = {data_base["players"][s]["achievements"]
+          for s in data_base["players"]}
+    set_achievement = set(s2)
     print(f"Unique achievements: {set_achievement}")
-    set_time = set(s["mode"] for s in data_base["sessions"])
+    s3 = {s["mode"] for s in data_base["sessions"]}
+    set_time = set(s3)
     print(f"Unique mode: {set_time}")
     print("\n=== Combined Analysis ===")
     print(f"Total players: {len(data_base['players'])}")
-    print(f"Total unique achievements: {len(set(data_base["players"][s]
-          ["achievements"]for s in data_base["players"]))}")
+    s4 = {data_base["players"][s]["achievements"]
+          for s in data_base["players"]}
+    unique_ach = {len(set(s4))}
+    print(f"Total unique achievements: {unique_ach}")
     scores = sum([s["score"] for s in data_base["sessions"]])
     lenght = len([s["score"] for s in data_base["sessions"]])
     avg = scores/lenght
-    top_per = max({s["player"]: s["score"] for s in data_base["sessions"]})
-    top_p = max({s["score"] for s in data_base["sessions"]})
-    top = max({s["score"] for s in data_base["sessions"]})
-
     print(f"Average score: {avg:.1f}")
-    print(f"Top performer: {top_per} ({top_p}, {top})")
+    max_name = [(data_base["players"][name]["total_score"], name)
+                for name in data_base["players"]]
+    best_score, best_name = max(max_name)
+    max_ach = max(data_base["players"][s]['achievements_count']
+                  for s in data_base["players"])
+    print(f"Top performer: {best_name} ({best_score} points,"
+          f"{max_ach} achievements)")
 
 
 analytics()
