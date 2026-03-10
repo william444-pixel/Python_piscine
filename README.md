@@ -11,25 +11,23 @@ This project is a comprehensive Maze Generator and Solver developed in Python. I
    python3 -m build
 Install the generated package:
 
-Bash
 pip install dist/mazegen-0.1.0.tar.gz
 Execution
 Run the main script using a configuration file:
 
-Bash
 python3 a_maze_ing.py config.txt
 Or use the installed package command:
-
-Bash
 mazegen config.txt
-Resources
+
+## Resources
 External References:
 
 Wikipedia: Maze generation algorithms (Recursive Backtracker).
 
 Python Documentation: collections.deque for optimized BFS pathfinding.
 
-AI Usage: AI was used as a collaborative tool for:
+## AI Usage 
+AI was used as a collaborative tool for:
 
 Structuring the pyproject.toml and ensuring PEP 517 compliance.
 
@@ -69,7 +67,7 @@ resolve_bfs(): Shortest path calculation using Breadth-First Search.
 display(): Dynamic terminal rendering with color and path toggling.
 The module is designed to be fully reusable and can be imported into other projects as a standard Python library.
 
-Team and Project Management
+## Team and Project Management
 Roles:
 
 <snaimi>: Logic Lead (DFS/BFS Algorithms, bitwise wall logic, and 42 pattern integration).
