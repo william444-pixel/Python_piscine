@@ -1,0 +1,7 @@
+WIDTH=20
+HEIGHT=20
+entry=6,6
+EXIT=2,3
+OUTPUT_FILE=maze.txt
+perfect=false
+seed=-10
